@@ -1,0 +1,19 @@
+<h3>If the following information is correct then press the "submit" button.</h3>
+  <%=form_with(model: @contact, url: contacts_path, local: true) do |form| %>
+    <%= form.hidden_field :name %>
+    <%= form.hidden_field :email %>
+    <%= form.hidden_field :content %>
+    
+    <p>Name:<%= @contact.name %></p>
+    <p>Email:<%=@contact.email %></p>
+    <p>Content:<%=@contact.content %></p>
+    <%=form.submit "submit" %>
+  <% end %>
+    
+  <%= form_with(model: @contact, url: new_contact_path, local: true, method: 'get') do |form| %>
+    <%= form.hidden_field :name %>
+    <%= form.hidden_field :email %>
+    <%= form.hidden_field :content %>
+
+    <%=form.submit "back",name: 'back' %>
+  <% end %>

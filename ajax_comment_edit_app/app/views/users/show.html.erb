@@ -1,0 +1,10 @@
+<h1><section class = "page_navi">ユーザー</h1></section>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.profile_image.url , :size => "100x100"%>
+</p>
+
+<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Back' %>

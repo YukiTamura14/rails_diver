@@ -1,0 +1,38 @@
+<h2><section class = "page_navi">投稿の編集を行う</h2></section>
+
+ <%= form_with(model: @blog, local: true ,url: choose_new_or_edit) do |form| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section class = "blog_send">
+  <div class="blog_title">
+    <%= form.label :title %>
+    <div class = "b_field"><%= form.text_field :title %></div>
+  </div>
+  <div class="blog_title">
+    <%= form.label :content %>
+    <div class = "b_field"><%= form.text_field :content %></div>
+  </div>
+  <div class="blog_title">
+    <%= form.label :priority %>
+    <%= form.select :priority, Blog.statuses.map { |key, value| [key, value]}, {} , class: 'blog_form-control b_field'%>
+  </div>
+  <div class="blog_title">
+      <label><%= form.radio_button :task_flag, true %>完了</label>
+      <label><%= form.radio_button :task_flag, false %>未完了</label>
+  </div>
+  <%= form.submit %><br>
+<% end %>
+
+<%= link_to "投稿一覧画面にもどる", blogs_path %>
+
+</section>

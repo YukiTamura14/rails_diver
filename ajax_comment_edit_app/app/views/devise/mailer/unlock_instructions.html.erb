@@ -1,0 +1,7 @@
+<p>ようこそ、 <%= @resource.email %>!</p>
+
+<p>ログイン試行回数が制限を超過したため、アカウントをロックいたしました。</p>
+
+<p>下記のリンクをクリックして、解除して下さい。</p>
+
+<p><%= link_to 'アカウント解除', unlock_url(@resource, unlock_token: @token) %></p>

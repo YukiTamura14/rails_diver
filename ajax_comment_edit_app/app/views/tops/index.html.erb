@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<body>
+  
+  
+  <div class = "logo">
+    <section class="about">
+      <p><seciton class = "theme">Complex<br></p>
+      <p><seciton class = "subtheme">-Change the power-</p>
+      <% if current_user %><%#ログインしているときはこちら%>
+        <p><section class = "new_user_enter"><%= link_to "早速、投稿を行う", new_blog_path %></p>
+      <% else %><%#ログインしていない時はこちら%>
+        <p><section class = "new_user_enter"><%= link_to "自分と向き合う方はこちら", new_user_session_path %></p>
+      <% end %>
+    </section>
+   
+  </div>
+  
+  <footer>
+    <p>運営会社DIVE INTO CODE株式会社</p>
+    <p>© 2015-2016 Copyright DIVE INTO CODE Corp.</p>
+  </footer>
+</body>
+</html>

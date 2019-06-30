@@ -1,0 +1,25 @@
+<h2><section class = "page_navi">パスワード変更</h2></section>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %>
+    <div class = "b_field"><%= f.password_field :password, autofocus: true, autocomplete: "new-password" %></div>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <div class = "b_field"><%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "送信する" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
